@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillShikshya</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #222;
+            scroll-behavior: smooth;
+        }
+        /* ===== HEADER ===== */
+        
+        header {
+            background-color: #111;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        header h1 {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #22c55e;
+        }
+        
+        .btn {
+            background-color: #22c55e;
+            padding: 8px 18px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #198754;
+        }
+        /* ===== HERO ===== */
+        
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(145deg, #e9f8ef, #ffffff);
+            animation: fadeIn 1.2s ease;
+        }
+        
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .hero h2 span {
+            color: #1ea34a;
+        }
+        
+        .hero p {
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+        /* ===== CATEGORIES ===== */
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: #0f5132;
+            color: white;
+            padding: 15px;
+            gap: 25px;
+            font-weight: 600;
+        }
+        
+        .categories div {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .categories div:hover {
+            transform: scale(1.1);
+            text-decoration: underline;
+        }
+        /* ===== MOMENTS ===== */
+        
+        .moments {
+            text-align: center;
+            padding: 70px 20px;
+            animation: slideUp 1.2s ease;
+        }
+        
+        .moments h3 {
+            font-size: 30px;
+            color: #1ea34a;
+            margin-bottom: 10px;
+        }
+        
+        .moments p {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .photos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .photos img {
+            width: 230px;
+            height: 160px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        
+        .photos img:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        /* ===== JOURNEY ===== */
+        
+        .journey {
+            padding: 80px 20px;
+            background: #fff;
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+        }
+        
+        .journey h3 {
+            font-size: 30px;
+            color: #1ea34a;
+            margin-bottom: 10px;
+        }
+        
+        .journey p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h4 {
+            margin-bottom: 10px;
+            color: #1ea34a;
+        }
+        
+        .card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+        }
+        /* ===== FOOTER ===== */
+        
+        footer {
+            text-align: center;
+            background: #111;
+            color: #fff;
+            padding: 25px;
+            font-size: 15px;
+            margin-top: 60px;
+        }
+        /* ===== ANIMATIONS ===== */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* ===== RESPONSIVE ===== */
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .hero h2 {
+                font-size: 30px;
+            }
+            .categories {
+                gap: 15px;
+                font-size: 14px;
+            }
+            .photos img {
+                width: 90%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>SkillShikshya</h1>
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Courses</a>
+            <a href="#">Blogs</a>
+            <a href="#">Success Stories</a>
+            <a href="#">Verify</a>
+            <a href="#" class="btn">Grow with Us</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h2>Where Your <span>Ambition</span> Meets <span>Opportunity</span></h2>
+        <p>Learn the skills that define your path. Your passion is your power—let’s shape it into a future you’ll love.</p>
+    </section>
+
+    <!-- CATEGORIES -->
+    <div class="categories">
+        <div>UI/UX</div>
+        <div>Graphic Design</div>
+        <div>Web Development</div>
+        <div>Quality Assurance</div>
+    </div>
+
+    <!-- MOMENTS -->
+    <section class="moments">
+        <h3>Skill-tastic Moments! 📸</h3>
+        <p>Boredom’s out! Fun learning is what SkillShikshya is all about!</p>
+
+        <div class="photos">
+            <img src="skill1.webp" alt="Photo 1" />
+            <img src="skill2.webp" alt="Photo 2" />
+            <img src="skill3.jpeg" alt="Photo 3" />
+            <img src="skill4.jpeg" alt="Photo 4" />
+        </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="journey">
+        <h3>Your SkillShikshya Journey</h3>
+        <p>Step In. Skill Up. Stand Out. 🚀</p>
+
+        <div class="steps">
+            <div class="card">
+                <h4>Start with Clarity</h4>
+                <p>Step into a better learning path. Whether you’re a beginner or upskilling, we have a roadmap for you.</p>
+            </div>
+            <div class="card">
+                <h4>Get Mentored & Supported</h4>
+                <p>You’re not learning alone. Get help, feedback, and motivation from mentors and peers.</p>
+            </div>
+            <div class="card">
+                <h4>Achieve & Showcase</h4>
+                <p>Build your portfolio, complete projects, and become job-ready with every step.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 SkillShikshya. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

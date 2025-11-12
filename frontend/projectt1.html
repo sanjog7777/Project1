@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillShikshya</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #222;
+            scroll-behavior: smooth;
+        }
+        /* ===== HEADER ===== */
+        
+        header {
+            background-color: #111;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        header h1 {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #22c55e;
+        }
+        
+        .btn {
+            background-color: #22c55e;
+            padding: 8px 18px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #198754;
+        }
+        /* ===== HERO ===== */
+        
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(145deg, #e9f8ef, #ffffff);
+            animation: fadeIn 1.2s ease;
+        }
+        
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .hero h2 span {
+            color: #1ea34a;
+        }
+        
+        .hero p {
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+        /* ===== CATEGORIES ===== */
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: #0f5132;
+            color: white;
+            padding: 15px;
+            gap: 25px;
+            font-weight: 600;
+        }
+        
+        .categories div {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .categories div:hover {
+            transform: scale(1.1);
+            text-decoration: underline;
+        }
+        /* ===== MOMENTS ===== */
+        
+        .moments {
+            text-align: center;
+            padding: 70px 20px;
+            animation: slideUp 1.2s ease;
+        }
+        
+        .moments h3 {
+            font-size: 30px;
+            color: #1ea34a;
+            margin-bottom: 10px;
+        }
+        
+        .moments p {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .photos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .photos img {
+            width: 230px;
+            height: 160px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        
+        .photos img:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        /* ===== JOURNEY ===== */
+        
+        .journey {
+            padding: 80px 20px;
+            background: #fff;
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+        }
+        
+        .journey h3 {
+            font-size: 30px;
+            color: #1ea34a;
+            margin-bottom: 10px;
+        }
+        
+        .journey p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h4 {
+            margin-bottom: 10px;
+            color: #1ea34a;
+        }
+        
+        .card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+        }
+        /* ===== FOOTER ===== */
+        
+        footer {
+            text-align: center;
+            background: #111;
+            color: #fff;
+            padding: 25px;
+            font-size: 15px;
+            margin-top: 60px;
+        }
+        /* ===== ANIMATIONS ===== */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* ===== RESPONSIVE ===== */
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .hero h2 {
+                font-size: 30px;
+            }
+            .categories {
+                gap: 15px;
+                font-size: 14px;
+            }
+            .photos img {
+                width: 90%;
+                height: auto;
+            }
+        }
+        /* ===== COURSES ===== */
+        
+        .courses {
+            text-align: center;
+            padding: 80px 20px;
+            background: #f9fafb;
+        }
+        
+        .courses h3 {
+            font-size: 28px;
+            color: #1ea34a;
+            margin-bottom: 10px;
+        }
+        
+        .courses span {
+            color: #22c55e;
+        }
+        
+        .course-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1.5rem 2rem;
+            min-width: 150px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat.red {
+            background: #ef4444;
+            color: #fff;
+        }
+        
+        .stat.pink {
+            background: #f9a8d4;
+        }
+        
+        .stat.lightpink {
+            background: #fbcfe8;
+        }
+        /* ===== PARTNERS ===== */
+        
+        .partners {
+            text-align: center;
+            background: #fff;
+            padding: 3rem 1rem;
+        }
+        
+        .partners span {
+            color: #22c55e;
+        }
+        
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .logos img {
+            width: 100px;
+            height: auto;
+        }
+        /* ===== MENTORS ===== */
+        
+        .mentors {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .mentor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .mentor img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .mentor h4 {
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        /* ===== FAQ SECTION ===== */
+        
+        .faq {
+            background: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .faq h3 {
+            font-size: 28px;
+            color: #1ea34a;
+            margin-bottom: 40px;
+        }
+        
+        .faq span {
+            color: #22c55e;
+        }
+        
+        .faq-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .faq-image img {
+            width: 280px;
+            max-width: 100%;
+        }
+        
+        .faq-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 700px;
+        }
+        
+        .faq-item {
+            background: #f9fafb;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            font-size: 15px;
+            color: #333;
+            transition: transform 0.2s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-4px);
+            background: #e9f8ef;
+        }
+        /* ===== TESTIMONIALS ===== */
+        
+        .testimonials {
+            background: #f9fafb;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .testimonials h3 {
+            font-size: 26px;
+            color: #1ea34a;
+            margin-bottom: 10px;
+        }
+        
+        .testimonials span {
+            color: #22c55e;
+        }
+        
+        .avatars {
+            margin: 30px auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        
+        .avatars img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .avatars img:hover {
+            transform: scale(1.1);
+        }
+        
+        .view-more {
+            display: inline-block;
+            margin-top: 20px;
+            color: #22c55e;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .view-more:hover {
+            text-decoration: underline;
+        }
+        /* ===== BLOG SECTION ===== */
+        
+        .blog {
+            background: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .blog h3 {
+            font-size: 26px;
+            color: #1ea34a;
+            margin-bottom: 10px;
+        }
+        
+        .blog span {
+            color: #22c55e;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .blog-card {
+            background: #f9fafb;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            padding-bottom: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid #22c55e;
+        }
+        
+        .blog-card h4 {
+            font-size: 16px;
+            padding: 15px;
+            color: #333;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-6px);
+        }
+        /* Reset */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        /* Blog Section */
+        
+        .blogs {
+            background-color: #fff;
+            padding: 80px 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+        
+        .blog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .blog-header h3 {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .blog-header h2 {
+            font-size: 26px;
+            color: #0d8f4f;
+            font-weight: 700;
+        }
+        
+        .blog-header a {
+            color: #111;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .blog-header a:hover {
+            color: #0d8f4f;
+        }
+        /* Blog Grid */
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .blog-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f2f2f2;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-6px);
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .blog-info {
+            padding: 15px;
+        }
+        
+        .blog-info .tag {
+            display: inline-block;
+            background: #0d8f4f;
+            color: #fff;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+        
+        .blog-info h3 {
+            font-size: 16px;
+            color: #222;
+            margin-bottom: 6px;
+        }
+        
+        .blog-info p {
+            font-size: 13px;
+            color: #777;
+        }
+        /* Footer Section */
+        
+        footer {
+            background: linear-gradient(135deg, #0d8f4f, #125e38);
+            color: #fff;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            padding-top: 60px;
+            margin-top: 80px;
+        }
+        
+        .footer-top {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .footer-top h2 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px 40px;
+        }
+        
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 15px;
+        }
+        
+        .footer-section p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #e3e3e3;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #e3e3e3;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+        /* Footer Bottom */
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            padding: 15px 0;
+            font-size: 13px;
+            color: #d8d8d8;
+        }
+        
+        .footer-bottom a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            .blog-header {
+                text-align: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-content {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>SkillShikshya</h1>
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Courses</a>
+            <a href="#">Blogs</a>
+            <a href="#">Success Stories</a>
+            <a href="#">Verify</a>
+            <a href="#" class="btn">Grow with Us</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h2>Where Your <span>Ambition</span> Meets <span>Opportunity</span></h2>
+        <p>Learn the skills that define your path. Your passion is your power—let’s shape it into a future you’ll love.</p>
+    </section>
+
+    <!-- CATEGORIES -->
+    <div class="categories">
+        <div>UI/UX</div>
+        <div>Graphic Design</div>
+        <div>Web Development</div>
+        <div>Quality Assurance</div>
+    </div>
+
+    <!-- MOMENTS -->
+    <section class="moments">
+        <h3>Skill-tastic Moments! 📸</h3>
+        <p>Boredom’s out! Fun learning is what SkillShikshya is all about!</p>
+
+        <div class="photos">
+            <img src="skill1.webp" alt="Photo 1" />
+            <img src="skill2.webp" alt="Photo 2" />
+            <img src="skill3.jpeg" alt="Photo 3" />
+            <img src="skill4.jpeg" alt="Photo 4" />
+        </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="journey">
+        <h3>Your SkillShikshya Journey</h3>
+        <p>Step In. Skill Up. Stand Out. 🚀</p>
+
+        <div class="steps">
+            <div class="card">
+                <h4>Start with Clarity</h4>
+                <img src="pattern1.png" alt="start with clarity" />
+                <p>Step into a better learning path. Whether you’re a beginner or upskilling, we have a roadmap for you.</p>
+            </div>
+            <div class="card">
+                <h4>Learn by Doing</h4>
+                <img src="pattern2.png" alt="learn by doing" />
+                <p>Practical skill and real project are done and have to submit in the given time period.</p>
+
+            </div>
+            <div class="card">
+                <h4>Get Mentored & Supported</h4><img src="pattern3.png" alt="mentored and support" />
+                <p>You’re not learning alone. Get help, feedback, and motivation from mentors and peers.</p>
+            </div>
+            <div class="card">
+                <h4>Achieve & Showcase</h4><img src="pattern4.png" alt="achieve and showcase" />
+                <p>Build your portfolio, complete projects, and become job-ready with every step.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES SECTION -->
+    <section class="courses">
+        <h3>Explore Our Courses</h3>
+        <p>Dive Into <span>What’s Hot Right Now! 🔥</span></p>
+        <div class="course-stats">
+            <div class="stat red">
+                <h3>23+</h3>
+                <p>All Courses</p>
+            </div>
+            <div class="stat pink">
+                <h3>05+</h3>
+                <p>Upcoming Courses</p>
+            </div>
+            <div class="stat lightpink">
+                <h3>10+</h3>
+                <p>Ongoing Courses</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS SECTION -->
+    <section class="partners">
+        <p>Our Students Get Snapped Up by <span>Industry Giants</span>, Kicking Off <span>Epic Careers!</span></p>
+        <div class="logos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+            <img src="airbnb.png" alt="Airbnb">
+            <img src="clickup.png" alt="ClickUp">
+        </div>
+    </section>
+
+    <!-- MENTORS SECTION -->
+    <section class="mentors">
+        <h3>Meet the <span>Masters of Skill-Building ✨</span></h3>
+        <div class="mentor-grid">
+            <div class="mentor">
+                <img src="aadarsha lamichhane.png" alt="Mentor 1">
+                <h4>Mentor Name</h4>
+                <p>Aadarsha Lamichhane</p>
+                <p>UI/UX Mentor</p>
+            </div>
+            <div class="mentor">
+                <img src="sailesh adhikari.png" alt="Mentor 2">
+                <h4>Mentor Name</h4>
+                <p>Sailesh Adhikari</p>
+                <p>Data Science Mentor</p>
+            </div>
+            <div class="mentor">
+                <img src="sauravrajjoshi.png" alt="Mentor 3">
+                <h4>Mentor Name</h4>
+                <p>Saurav Raj Joshi</p>
+                <p>Business Data Analyst Mentor</p>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ SECTION -->
+    <section class="faq">
+        <h3>FAQs: <span>Your Burning Questions Answered! 🤔</span></h3>
+        <div class="faq-container">
+            <div class="faq-image">
+                <img src="fqa.png" alt="FAQ Illustration">
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <p><strong>1. To get started, simply register yourself and select the course that aligns with your interests...</strong></p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>2. What are the potential career opportunities after completing the course?</strong></p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>3.Are the video courses downloadable?</strong></p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>4. Do we get a certificate after completing the course?</strong></p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>5. I’m from a non-IT background — am I eligible to enroll?</strong></p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>6. What benefits will I receive after completing the course?</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <h3>Hear How They Level Up Their Game!</h3>
+        <p><span>Skill Masters Unite! 🤝</span></p>
+        <div class="avatars">
+            <img src="stud1.jpg" alt="Student">
+            <img src="stud2.jpg" alt="Student">
+            <img src="stud3.jpg" alt="Student">
+            <img src="stud4.jpg" alt="Student">
+            <img src="stud5.jpg" alt="Student">
+            <img src="stud6.jpg" alt="Student">
+        </div>
+        <a href="#" class="view-more">View all Testimonials →</a>
+    </section>
+
+
+    <!-- BLOG SECTION -->
+    <section class="blogs" id="blogs">
+        <div class="container">
+            <div class="blog-header">
+                <div class="left">
+                    <h2 style="color: #0d8f4f;">Dive into the Coolest Corner of Learning</h3>
+                        <h3 style="color: #22c55e;">Skill Stories & Code Chronicles ✍️</h2>
+                </div>
+                <div class="right">
+                    <a href="#">View all Blogs ➜</a>
+                </div>
+            </div>
+
+            <div class="blog-grid">
+                <div class="blog-card large">
+                    <img src="blogb.png" alt="HTML Blog">
+                    <div class="blog-info">
+                        <span class="tag">CODING</span>
+                        <h3>Coding for Beginners: Turn Your Ideas into Reality</h3>
+                        <p>By Yureka Shikshya | 12 May 2024</p>
+                    </div>
+                </div>
+
+                <div class="blog-card small">
+                    <img src="blogs.png" alt="UI/UX Blog">
+                    <div class="blog-info">
+                        <span class="tag">UI/UX</span>
+                        <h3>The Art of Simplicity: Mastering Minimalist UI Design</h3>
+                        <p>By Yureka Shikshya | 10 May 2024</p>
+                    </div>
+                </div>
+
+                <div class="blog-card small">
+                    <img src="blogss.png" alt="Responsive Design Blog">
+                    <div class="blog-info">
+                        <span class="tag">FRONTEND</span>
+                        <h3>Responsive Magic: Designing for Every Screen Size</h3>
+                        <p>By Yureka Shikshya | 10 May 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-top">
+            <h2>Ready to Level Up?</h2>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SkillShikshya</h3>
+                <p>Skill Shikshya, an innovative online learning site, is dedicated to offering skills that truly matter in today’s fast-paced world.</p>
+                <p>📞 +977-986-8705099</p>
+                <p>📧 admin@skillshikshya.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Verify Certificate</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Additional Links</h4>
+                <ul>
+                    <li><a href="#">Code Compiler</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Social Media</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 SkillShikshya. All rights reserved. | Made with ❤️ by Will Tech</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+        </div>
+    </footer>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 SkillShikshya. All rights reserved.</p>
+    </footer>
+</body>
